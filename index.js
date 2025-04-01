@@ -10,6 +10,7 @@ const { analisarHumor } = require('./src/utils/moodAnalyzer');
 const { getRandomQuestion } = require('./src/utils/questions');
 const { addMemory, viewAlbum } = require('./src/utils/albumManager');
 const rpg = require('./src/utils/rpgGame');
+const { keepAlive } = require('./server');
 
 const client = new Client({
   intents: [
@@ -21,7 +22,9 @@ const client = new Client({
 });
 
 client.once('ready', () => {
-  console.log('Bot está online!');
+  console.log(`🤖 Bot está online em ${client.guilds.cache.size} servidores!`);
+  console.log('⚙️ Ambiente: Produção');
+  console.log('🔗 URL para UptimeRobot:', process.env.PROJECT_DOMAIN);
 });
 
 client.on('messageCreate', async (message) => {
@@ -233,6 +236,7 @@ client.on('messageCreate', async (message) => {
   }
 });
 
+keepAlive();
 client.login(process.env.DISCORD_TOKEN);
 
 // Exporte todas as funções aqui para facilitar o acesso

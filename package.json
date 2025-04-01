@@ -16,7 +16,11 @@
   },
   "scripts": {
     "start": "node index.js",
-    "update-play": "npm i play-dl@latest"
+    "update-play": "npm i play-dl@latest",
+    "dev": "nodemon index.js"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "author": "",
   "license": "ISC",
