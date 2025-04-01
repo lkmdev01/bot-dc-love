@@ -10,6 +10,15 @@ const { analisarHumor } = require('./src/utils/moodAnalyzer');
 const { getRandomQuestion } = require('./src/utils/questions');
 const { addMemory, viewAlbum } = require('./src/utils/albumManager');
 const rpg = require('./src/utils/rpgGame');
+const { keepAlive } = require('./server');
+
+// Verificar token do Discord (suporte para Replit Secrets e .env)
+const TOKEN = process.env.DISCORD_TOKEN || process.env.REPLIT_DISCORD_TOKEN;
+
+if (!TOKEN) {
+    console.error('⚠️ Token do Discord não encontrado! Configure DISCORD_TOKEN no .env ou nos Secrets do Replit');
+    process.exit(1);
+}
 
 const client = new Client({
   intents: [
@@ -233,7 +242,8 @@ client.on('messageCreate', async (message) => {
   }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+keepAlive();
+client.login(TOKEN);
 
 // Exporte todas as funções aqui para facilitar o acesso
 module.exports = {
