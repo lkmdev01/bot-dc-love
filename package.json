@@ -7,13 +7,13 @@
     "@discordjs/voice": "^0.16.1",
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "ffmpeg-static": "^5.2.0",
     "libsodium-wrappers": "^0.7.13",
-    "youtube-dl-exec": "^2.5.6",
-    "yt-search": "^2.10.4",
-    "sqlite3": "^5.1.7",
     "prism-media": "^1.3.5",
-    "express": "^4.18.2"
+    "sqlite3": "^5.1.7",
+    "youtube-dl-exec": "^2.5.6",
+    "yt-search": "^2.10.4"
   },
   "scripts": {
     "start": "node index.js",
@@ -22,5 +22,8 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "vercel": "^41.4.1"
+  }
 }
